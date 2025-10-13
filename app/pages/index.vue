@@ -19,8 +19,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
-
 const route = useRoute()
 const search = ref(route.query.name as string || "")
 
