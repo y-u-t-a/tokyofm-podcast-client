@@ -1,8 +1,14 @@
+import * as z from "zod";
+
 import { getEpisodes } from "~~/server/scraping/episodes"
 
+const paramSchema = z.object({
+  program: z.string(),
+})
+
 export default defineEventHandler(async (event) => {
-  const programId = getRouterParam(event, "program") as string
-  const episodes = await getEpisodes(programId)
+  const { program } = await getValidatedRouterParams(event, paramSchema.parse)
+  const episodes = await getEpisodes(program)
   return {
     episodes
   }
