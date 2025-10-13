@@ -1,7 +1,7 @@
 import { Program } from "~~/shared/model/program"
 import { withBrowser } from "../utils/browser"
 
-export async function search(keyword: string): Promise<Program[]> {
+export async function searchPrograms(keyword: string): Promise<Program[]> {
   return withBrowser(async (page) => {
     await page.goto("https://www.tfm.co.jp/podcast/")
 
