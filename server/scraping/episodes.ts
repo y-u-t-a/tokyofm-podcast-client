@@ -1,0 +1,43 @@
+import { Episode } from "~~/shared/model/episode"
+import { withBrowser } from "../utils/browser"
+
+export async function getEpisodes(program: string): Promise<Episode[]> {
+  return withBrowser(async (page) => {
+      await page.goto(`https://www.tfm.co.jp/podcast/${program}`)
+      await page.waitForSelector(".p-episode_list article")
+
+      return await page.evaluate(() => {
+        const elements = Array.from(document.querySelectorAll(".p-episode_list article"))
+        const episodes = elements.map(e => {
+          // メタ情報
+          const metaContent = e.querySelector(".p-episode_info")?.textContent ?? ""
+          const publishedAt = new Date(metaContent.split("|")[0].trim()).getTime()
+          const length = metaContent.split("|")[1].trim()
+
+          // タイトル情報
+          const titleContent = e.querySelector(".p-episode_ttl")?.textContent ?? ""
+          const id = Number(titleContent.split(" ")[0].replace("#", ""))
+          const title = titleContent.split(" ").slice(1).join(" ").trim()
+
+          // 説明文
+          const descriptionContent = e.querySelector(".p-episode_text")?.textContent ?? ""
+          const description = descriptionContent.replace(/\n\s+/g, "\n")
+
+          // 音源
+          const audioElement = e.querySelector("audio")
+          const audio = audioElement?.src ?? ""
+
+          return {
+            id,
+            title,
+            description,
+            publishedAt,
+            length,
+            audio,
+          }
+        })
+
+        return episodes
+      })
+  })
+}

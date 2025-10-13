@@ -8,6 +8,7 @@ export async function searchPrograms(keyword: string): Promise<Program[]> {
     // 検索
     await page.locator(".p-search_box").fill(keyword)
     await page.keyboard.press("Enter")
+    await page.waitForSelector("#programList")
 
     // 検索結果を取得
     return await page.evaluate(() => {
