@@ -11,10 +11,7 @@
     />
     <button hidden type="submit" />
   </form>
-  <div v-if="pending">
-    Loading...
-    <UProgress />
-  </div>
+  <Loading :loading="pending" />
   <ProgramList v-if="!pending && data" :programs="data.programs" />
 </template>
 

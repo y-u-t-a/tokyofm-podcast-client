@@ -1,5 +1,6 @@
 <template>
   <h1>{{ id }}</h1>
+  <Loading :loading="pending" />
   <pre v-if="data">{{ data }}</pre>
 </template>
 
