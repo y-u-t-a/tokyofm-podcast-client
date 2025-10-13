@@ -16,8 +16,7 @@ export async function getEpisodes(program: string): Promise<Episode[]> {
 
           // タイトル情報
           const titleContent = e.querySelector(".p-episode_ttl")?.textContent ?? ""
-          const id = Number(titleContent.split(" ")[0].replace("#", ""))
-          const title = titleContent.split(" ").slice(1).join(" ").trim()
+          const title = titleContent.trim()
 
           // 説明文
           const descriptionContent = e.querySelector(".p-episode_text")?.textContent ?? ""
@@ -28,7 +27,6 @@ export async function getEpisodes(program: string): Promise<Episode[]> {
           const audio = audioElement?.src ?? ""
 
           return {
-            id,
             title,
             description,
             publishedAt,
