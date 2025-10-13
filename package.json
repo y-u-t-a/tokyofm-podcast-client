@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "nuxt dev",
-    "start": "nuxt build & nuxt preview",
+    "start": "nuxt build && nuxt preview",
     "test": "bun test",
     "postinstall": "nuxt prepare"
   },
