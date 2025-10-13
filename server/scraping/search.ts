@@ -1,11 +1,5 @@
+import { Program } from "~~/shared/model/program"
 import { withBrowser } from "../utils/browser"
-
-interface Program {
-  id: string
-  title: string
-  href: string
-  img: string
-}
 
 export async function search(keyword: string): Promise<Program[]> {
   return withBrowser(async (page) => {
