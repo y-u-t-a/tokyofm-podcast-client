@@ -21,7 +21,7 @@ import { ref } from 'vue'
 const route = useRoute()
 const search = ref(route.query.name as string || "")
 
-const { execute, data, pending } = useFetch("/api/search", {
+const { execute, data, pending } = useFetch("/api/programs", {
   query: { name: route.query.name },
   immediate: false
 })
