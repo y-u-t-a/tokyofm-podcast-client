@@ -16,6 +16,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: "番組 | TOKYO FM Podcast Client"
+})
+
 const route = useRoute()
 const search = ref(route.query.name as string || "")
 

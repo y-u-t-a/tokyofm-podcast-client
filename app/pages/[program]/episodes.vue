@@ -5,6 +5,10 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: "エピソード | TFM Client"
+})
+
 const route = useRoute("program-episodes")
 const id = route.params.program
 
