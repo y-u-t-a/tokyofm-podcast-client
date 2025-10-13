@@ -1,5 +1,5 @@
 import { expect, test } from "bun:test";
-import { search } from "./search"
+import { search } from "./programs"
 
 test("空白でも検索できること", async () => {
   const result = await search("")

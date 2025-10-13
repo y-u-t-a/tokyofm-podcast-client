@@ -1,5 +1,5 @@
 
-import { search } from "../scraping/search";
+import { search } from "../scraping/programs";
 
 export default defineEventHandler(async (event) => {
   const { name } = getQuery(event)
