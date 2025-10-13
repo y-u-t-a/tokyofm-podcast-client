@@ -1,5 +1,5 @@
 <template>
-  <div v-if="programs.length > 0" class="grid gap-x-4 gap-y-6 grid-cols-3">
+  <div v-if="programs.length > 0" class="grid gap-x-4 gap-y-6 grid-cols-2 md:grid-cols-4">
     <div v-for="program in programs" class="hover:opacity-80">
       <NuxtLink :to="`/${program.id}/episodes`">
         <img :src="program.img" :alt="program.title" />

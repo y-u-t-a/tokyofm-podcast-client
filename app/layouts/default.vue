@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-3xl mx-auto pt-5">
+  <UContainer class="pt-5">
     <slot />
-  </div>
+  </UContainer>
 </template>
