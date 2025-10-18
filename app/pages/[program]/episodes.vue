@@ -6,7 +6,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: "エピソード | TFM Client"
+  title: "エピソード"
 })
 
 const route = useRoute("program-episodes")

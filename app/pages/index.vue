@@ -17,7 +17,7 @@
 
 <script setup lang="ts">
 useHead({
-  title: "番組 | TOKYO FM Podcast Client"
+  title: "番組"
 })
 
 const route = useRoute()
