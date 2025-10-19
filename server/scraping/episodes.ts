@@ -20,7 +20,7 @@ export async function getEpisodes(program: string): Promise<Episode[]> {
 
           // 説明文
           const descriptionContent = e.querySelector(".p-episode_text")?.textContent ?? ""
-          const description = descriptionContent.replace(/\n\s+/g, "\n")
+          const description = descriptionContent.trim().replace(/\n\s+/g, "\n")
 
           // 音源
           const audioElement = e.querySelector("audio")
