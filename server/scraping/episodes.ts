@@ -11,8 +11,8 @@ export async function getEpisodes(program: string): Promise<Episode[]> {
         const episodes = elements.map(e => {
           // メタ情報
           const metaContent = e.querySelector(".p-episode_info")?.textContent ?? ""
-          const publishedAt = new Date(metaContent.split("|")[0].trim()).getTime()
-          const length = metaContent.split("|")[1].trim()
+          const [publishedAtRaw, length] = metaContent.split("|").map((s) => s.trim());
+          const publishedAt = new Date(publishedAtRaw).getTime()
 
           // タイトル情報
           const titleContent = e.querySelector(".p-episode_ttl")?.textContent ?? ""
